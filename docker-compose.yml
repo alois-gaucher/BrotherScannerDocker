@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  brother_scanner:
-    container_name: brother_scanner
+  brother-scanner:
+    container_name: brother-scanner
     image: ghcr.io/alois-gaucher/brother-scanner
     network_mode: host
     restart: unless-stopped
