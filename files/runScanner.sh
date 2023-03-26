@@ -11,14 +11,15 @@ env > /opt/brother/scanner/env.txt
 su - $USERNAME -c "/usr/bin/brsaneconfig4 -a name=$NAME model=$MODEL ip=$IPADDRESS"
 su - $USERNAME -c "/usr/bin/brscan-skey"
 
-sleep 30
-
 echo "Replacing scripts"
 
 rm -rf /opt/brother/scanner/brscan-skey/script
 cp /script/* /opt/brother/scanner/brscan-skey/script
-chmod -R 777 /opt/brother/scanner/brscan-skey/script
+chmod a+x /opt/brother/scanner/brscan-skey/script/*
 
-echo "Startup finished"
+while true;
+do
+  sleep 1000
+done
 
 exit 0
