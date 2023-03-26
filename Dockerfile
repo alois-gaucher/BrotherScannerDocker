@@ -18,9 +18,7 @@ RUN cd /tmp && \
 
 ADD files/runScanner.sh /opt/brother/runScanner.sh
 
-RUN rm -rf /opt/brother/scanner/brscan-skey/script
-
-COPY script /opt/brother/scanner/brscan-skey/script
+COPY script /home/${USERNAME}/script
 
 ENV NAME="Scanner"
 ENV MODEL="DLP-L2530DW"
