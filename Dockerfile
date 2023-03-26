@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 
 RUN apt-get -y update && apt-get -y upgrade && apt-get -y clean
-RUN apt-get -y install sane sane-utils ghostscript netpbm wget graphicsmagick curl ssh sshpass && apt-get -y clean
+RUN apt-get -y install sane sane-utils ghostscript netpbm wget graphicsmagick curl ssh sshpass libtiff-tools && apt-get -y clean
 
 RUN cd /tmp && \
 	wget https://download.brother.com/welcome/dlf105200/brscan4-0.4.11-1.amd64.deb && \
@@ -23,7 +23,7 @@ COPY script /opt/brother/scanner/brscan-skey/script
 ENV NAME="Scanner"
 ENV MODEL="DLP-L2530DW"
 ENV IPADDRESS="192.168.1.58"
-ENV USERNAME="NAS"
+ENV USERNAME="Docker"
 ENV RESOLUTION="600"
 
 #only set these variables, if inotify needs to be triggered (e.g., for CloudStation):
