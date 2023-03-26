@@ -14,15 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -
-        name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v3
-        with:
-          images: |
-            ghcr.io/${{ github.repository_owner }}/brotherscannerdocker
-          tags: |
-            type=raw,value=latest
-      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       -
@@ -40,5 +31,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: alois-gaucher/brother-scanner:latest
