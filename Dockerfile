@@ -18,7 +18,7 @@ RUN cd /tmp && \
 
 ADD files/runScanner.sh /opt/brother/runScanner.sh
 
-COPY script /home/${USERNAME}/script
+COPY script /script
 
 ENV NAME="Scanner"
 ENV MODEL="DLP-L2530DW"

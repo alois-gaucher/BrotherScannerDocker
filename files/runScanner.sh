@@ -12,7 +12,7 @@ su - $USERNAME -c "/usr/bin/brsaneconfig4 -a name=$NAME model=$MODEL ip=$IPADDRE
 su - $USERNAME -c "/usr/bin/brscan-skey"
 
 su - $USERNAME -c "rm -rf /opt/brother/scanner/brscan-skey/script"
-su - $USERNAME -c "mv /home/$USERNAME/script /opt/brother/scanner/brscan-skey/script"
+su - $USERNAME -c "mv /script /opt/brother/scanner/brscan-skey/script"
 
 while true;
 do
