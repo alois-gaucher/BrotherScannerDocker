@@ -7,7 +7,7 @@ export $(grep -v '^#' /opt/brother/scanner/env.txt | xargs)
 
 # Resolution (dpi):
 # 100,200,300,400,600
-resolution=300
+resolution=$RESOLUTION
 device=$1
 date=$(date +%Y-%m-%d-%H-%M-%S)
 filename_base=/scans/$date"-page"

@@ -22,8 +22,9 @@ COPY script /opt/brother/scanner/brscan-skey/script
 
 ENV NAME="Scanner"
 ENV MODEL="DLP-L2530DW"
-ENV IPADDRESS="192.168.1.123"
-ENV USERNAME="NAS"
+ENV IPADDRESS="192.168.1.58"
+ENV USERNAME="Docker"
+ENV RESOLUTION="600"
 
 #only set these variables, if inotify needs to be triggered (e.g., for CloudStation):
 ENV SSH_USER="admin"

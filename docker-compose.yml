@@ -3,13 +3,14 @@ version: '3'
 services:
   scanner:
     build: .
-    image: ghcr.io/drakeapps/brother-scanner
+    image: ghcr.io/alois-gaucher/brother-scanner
     network_mode: host
     restart: unless-stopped
     environment:
       - NAME=SCANNER
-      - MODEL=MFC-L2710DW
-      - IPADDRESS=192.168.1.31
+      - MODEL=DLP-L2530DW
+      - IPADDRESS=192.168.1.58
+      - RESOLUTION=600
     volumes:
       - ./scans:/scans
       - ./script:/opt/brother/scanner/brscan-skey/script/
