@@ -1,5 +1,8 @@
 version: '3'
 
+volumes:
+  brotherscanner_script:
+
 services:
   brother-scanner:
     container_name: brother-scanner
@@ -13,5 +16,5 @@ services:
       - RESOLUTION=600
     volumes:
       - ./scans:/scans
-      - ./script:/opt/brother/scanner/brscan-skey/script/
+      - brotherscanner_script:/opt/brother/scanner/brscan-skey/script/
 
