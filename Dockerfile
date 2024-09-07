@@ -12,7 +12,7 @@ RUN cd /tmp && \
 	rm /tmp/brscan4-0.4.11-1.amd64.deb
 
 RUN cd /tmp && \
-	wget https://download.brother.com/welcome/dlf006652/brscan-skey-0.3.1-2.amd64.deb && \
+	wget https://download.brother.com/welcome/dlf006652/brscan-skey-0.3.2-0.amd64.deb && \
 	dpkg -i /tmp/brscan-skey-0.3.2-0.amd64.deb && \
 	rm /tmp/brscan-skey-0.3.2-0.amd64.deb
 
