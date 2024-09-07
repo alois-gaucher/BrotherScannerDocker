@@ -14,8 +14,7 @@ su - $USERNAME -c "/usr/bin/brscan-skey"
 sleep 30
 
 echo "Replacing scripts"
-rm -rf /opt/brother/scanner/brscan-skey/script
-cp /script/* /opt/brother/scanner/brscan-skey/script
+cp script/* /opt/brother/scanner/brscan-skey/script
 chmod a+x /opt/brother/scanner/brscan-skey/script/*
 
 while true;
