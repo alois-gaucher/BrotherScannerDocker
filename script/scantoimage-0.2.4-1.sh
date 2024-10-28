@@ -6,6 +6,7 @@
   #override environment, as brscan is screwing it up:
   export $(grep -v '^#' /opt/brother/scanner/env.txt | xargs)
 
+  resolution="${IMAGE_RESOLUTION:-600}"
   device="$1"
   date=$(date +%Y-%m-%d-%H-%M-%S)
   script_dir="/opt/brother/scanner/brscan-skey/script"
@@ -18,7 +19,7 @@
     # `brother4:net1;dev0` device name gets passed to scanimage, which it refuses as an invalid device name for some reason.
     # Let's use the default scanner for now
     # scanimage -l 0 -t 0 -x 215 -y 297 --device-name="$1" --resolution="$2" --batch="$3"
-    scanimage -l 0 -t 0 -x 215 -y 297 --format=jpeg --mode "24bit Color[Fast]" --resolution=600 -o "$3"
+    scanimage -l 0 -t 0 -x 215 -y 297 --format=jpeg --mode "24bit Color[Fast]" --resolution="$2" -o "$3"
     convert "$3" -shave 50x50 -bordercolor white -border 1x1 -fuzz 70% -trim "$trimmed_jpeg_file"
   }
 
