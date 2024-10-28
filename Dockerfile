@@ -6,6 +6,7 @@ apt-get -y --no-install-recommends install \
   bc \
   curl \
   ghostscript \
+  imagemagick \
   graphicsmagick \
   iproute2 \
   jq \
