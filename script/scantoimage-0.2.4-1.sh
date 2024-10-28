@@ -33,13 +33,6 @@
   fi
 
   scan_cmd "$device" "$resolution" "$output_jpeg_file"
-
-  if [ "$(which usleep 2>/dev/null)" != '' ]; then
-    usleep 500000
-  else
-    sleep 0.5
-  fi
-
   trim_cmd "$output_jpeg_file" "$trimmed_jpeg_file"
 
 } >>/var/log/scanner.log 2>&1
