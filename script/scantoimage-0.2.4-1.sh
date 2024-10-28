@@ -20,7 +20,10 @@
     # Let's use the default scanner for now
     # scanimage -l 0 -t 0 -x 215 -y 297 --device-name="$1" --resolution="$2" --batch="$3"
     scanimage -l 0 -t 0 -x 215 -y 297 --format=jpeg --mode "24bit Color[Fast]" --resolution="$2" -o "$3"
-    convert "$3" -shave 40x40 -fuzz 10% -trim "$trimmed_jpeg_file"
+  }
+
+  function trim_cmd() {
+    convert "$1" -shave 40x40 -fuzz 80% -trim +repage "$2"
   }
 
   if [ "$(which usleep 2>/dev/null)" != '' ]; then
@@ -28,6 +31,15 @@
   else
     sleep 0.1
   fi
+
   scan_cmd "$device" "$resolution" "$output_jpeg_file"
+
+  if [ "$(which usleep 2>/dev/null)" != '' ]; then
+    usleep 500000
+  else
+    sleep 0.5
+  fi
+
+  trim_cmd "$output_jpeg_file" "$trimmed_jpeg_file"
 
 } >>/var/log/scanner.log 2>&1
