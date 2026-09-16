@@ -1,12 +1,12 @@
-FROM python:slim-bullseye
+FROM python:slim-bookworm
 
 RUN <<EOF
 apt-get update && \
+apt-get -y upgrade && \
 apt-get -y --no-install-recommends install \
   bc \
   curl \
   ghostscript \
-  imagemagick \
   graphicsmagick \
   iproute2 \
   jq \
@@ -17,19 +17,17 @@ apt-get -y --no-install-recommends install \
   php-cgi \
   php-curl \
   poppler-utils \
-  python3 \
-  sane \
   sane-utils \
   ssh \
   sshpass \
   sudo \
   tzdata \
-  wget \
-  x11-common && \
+  wget && \
 apt-get -y clean && \
 rm -rf /var/lib/apt/lists/* && \
+pip install --no-cache-dir --upgrade pip setuptools && \
 wget https://download.brother.com/welcome/dlf105200/brscan4-0.4.11-1.amd64.deb --progress=dot:giga -O /tmp/brscan4.deb && \
-wget https://download.brother.com/welcome/dlf006652/brscan-skey-0.3.2-0.amd64.deb --progress=dot:giga -O /tmp/brscan-skey.deb && \
+wget https://download.brother.com/welcome/dlf006652/brscan-skey-0.3.5-0.amd64.deb --progress=dot:giga -O /tmp/brscan-skey.deb && \
 dpkg -i --force-all /tmp/brscan4.deb && \
 dpkg -i --force-all /tmp/brscan-skey.deb && \
 rm -f /tmp/brscan4.deb /tmp/brscan-skey.deb

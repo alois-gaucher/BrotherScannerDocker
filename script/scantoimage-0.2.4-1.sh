@@ -23,7 +23,7 @@
   }
 
   function trim_cmd() {
-    convert "$1" -shave 40x40 -fuzz 80% -trim +repage "$2"
+    gm convert "$1" -shave 40x40 -fuzz 80% -trim +repage "$2"
   }
 
   if [ "$(which usleep 2>/dev/null)" != '' ]; then
